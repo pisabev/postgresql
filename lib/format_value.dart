@@ -112,8 +112,7 @@ _formatDateTime(DateTime datetime, String type) {
   }
 
   if (t == 'timestamptz') {
-    // Add timezone offset.
-    throw new Exception('Not implemented'); //TODO
+    sb.write('Z');
   }
 
   return "'${sb.toString()}'";
