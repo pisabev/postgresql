@@ -531,9 +531,8 @@ class _Connection implements Connection {
         return DateTime.parse(UTF8.decode(data));
       case _PG_TIMESTAMPZ:
         var date_string = UTF8.decode(data);
-        return (new RegExp(r'[-+]\d\d$').hasMatch(date_string))?
-          DateTime.parse(date_string + ':00') :
-          DateTime.parse(date_string);
+        return DateTime.parse((new RegExp(r'[-+]\d\d$').hasMatch(date_string))? 
+          date_string + ':00' : date_string);
 
       // Not implemented yet - return a string.
       case _PG_MONEY:
