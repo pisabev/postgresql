@@ -320,7 +320,7 @@ main() {
           expect(rows[0][0], equals(t0));
           expect(rows[1][0], equals(t1));
           expect(rows[2][0], equals(t2));
-          expect(rows[3][0], equals(t3));
+          expect(rows[3][0], equals(t2));
         })
       );
     });
