@@ -303,9 +303,9 @@ main() {
     
     test('Select timestamptz with milliseconds', () {
       var t0 = new DateTime.utc(1979, 12, 20, 9, 0, 0);
-      var t1 = new DateTime.utc(1979, 12, 20, 9, 0, 9);
-      var t2 = new DateTime.utc(1979, 12, 20, 9, 0, 99);
-      var t3 = new DateTime.utc(1979, 12, 20, 9, 0, 999);
+      var t1 = new DateTime.utc(1979, 12, 20, 9, 0, 9, 0);
+      var t2 = new DateTime.utc(1979, 12, 20, 9, 0, 99, 123);
+      var t3 = new DateTime.utc(1979, 12, 20, 9, 0, 999, 999);
 
       conn.execute('create temporary table dart_unit_test (a timestamptz)');
 
