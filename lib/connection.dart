@@ -527,12 +527,12 @@ class _Connection implements Connection {
         return double.parse(UTF8.decode(data));
 
       case _PG_TIMESTAMP:
+      case _PG_TIMESTAMPZ:
       case _PG_DATE:
         return DateTime.parse(UTF8.decode(data));
 
       // Not implemented yet - return a string.
       case _PG_MONEY:
-      case _PG_TIMESTAMPZ:
       case _PG_TIMETZ:
       case _PG_TIME:
       case _PG_INTERVAL:
