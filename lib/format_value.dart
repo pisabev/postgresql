@@ -109,11 +109,14 @@ _formatDateTime(DateTime datetime, String type) {
       else if (s.length == 2) sb.write('0');
       sb.write(s);
     }
+    if (datetime.isUtc) {
+      sb.write('Z');
+    }
   }
 
-  if (t == 'timestamptz') {
-    sb.write('Z');
-  }
+  //if (t == 'timestamptz') {
+  //  sb.write('Z');
+  //}
 
   return "'${sb.toString()}'";
 }
