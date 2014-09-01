@@ -300,6 +300,30 @@ main() {
         })
       );
     });
+    
+    test('Select timestamptz with milliseconds', () {
+      var t0 = new DateTime.utc(1979, 12, 20, 9, 0, 0);
+      var t1 = new DateTime.utc(1979, 12, 20, 9, 0, 9);
+      var t2 = new DateTime.utc(1979, 12, 20, 9, 0, 99);
+      var t3 = new DateTime.utc(1979, 12, 20, 9, 0, 999);
+
+      conn.execute('create temporary table dart_unit_test (a timestamptz)');
+
+      var insert = 'insert into dart_unit_test values (@time)';
+      conn.execute(insert, {"time": t0});
+      conn.execute(insert, {"time": t1});
+      conn.execute(insert, {"time": t2});
+      conn.execute(insert, {"time": t3});
+
+      conn.query('select a from dart_unit_test').toList().then(
+        expectAsync1((rows) {
+          expect(rows[0][0], equals(t0));
+          expect(rows[1][0], equals(t1));
+          expect(rows[2][0], equals(t2));
+          expect(rows[3][0], equals(t3));
+        })
+      );
+    });
 
     test('Select DateTime', () {
 
