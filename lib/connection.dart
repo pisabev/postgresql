@@ -530,7 +530,6 @@ class _Connection implements Connection {
       case _PG_DATE:
         return DateTime.parse(UTF8.decode(data));
       case _PG_TIMESTAMPZ:
-        //Maybe needs refactoring but at least it's working
         var date_string = UTF8.decode(data);
         return (new RegExp(r'[-+]\d\d$').hasMatch(date_string))?
           DateTime.parse(date_string + ':00') :
