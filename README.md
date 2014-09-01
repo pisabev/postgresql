@@ -72,7 +72,7 @@ Below is the mapping from Postgresql types to Dart types. The type mapping is st
 	int2, int4, int8       int
 	float4, float8         double
 	timestamp, date        Datetime
-	timestamptz	       DateTime.utc
+	timestamptz            DateTime.utc
 	All other types        String
 ```
 
